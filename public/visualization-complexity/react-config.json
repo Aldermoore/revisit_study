@@ -1,0 +1,296 @@
+{
+    "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
+    "studyMetadata": {
+        "title": "Basic Randomization Study",
+        "version": "pilot",
+        "authors": [
+            "CA3 @ Aarhus University"
+        ],
+        "date": "2024-07-25",
+        "description": "A simple questionnaire study",
+        "organizations": [
+            "Aarhus University",
+            "University of Utah",
+            "WPI",
+            "University of Toronto"
+        ]
+    },
+    "uiConfig": {
+        "contactEmail": "ellemose@cs.au.dk",
+        "helpTextPath": "visualization-complexity/assets/help.md",
+        "logoPath": "revisitAssets/revisitLogoSquare.svg",
+        "withProgressBar": true,
+        "autoDownloadStudy": false,
+        "sidebar": false
+    },
+    "baseComponents": {
+        "bubbleChart": {
+            "description": "A bubble chart with correct answer of 0.66",
+            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+            "type": "react-component",
+            "path": "demo-cleveland/assets/BubbleChart.tsx",
+            "parameters": {
+                "data": [
+                    {
+                        "name": "A",
+                        "value": "30"
+                    },
+                    {
+                        "name": "B",
+                        "value": "40"
+                    },
+                    {
+                        "name": "C",
+                        "value": "50"
+                    },
+                    {
+                        "name": "D",
+                        "value": "40"
+                    },
+                    {
+                        "name": "E",
+                        "value": "60"
+                    }
+                ],
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            },
+            "response": [
+                {
+                    "id": "cm-response",
+                    "prompt": "Answer:",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "numerical",
+                    "placeholder": "0-100",
+                    "max": 100,
+                    "min": 0
+                }
+            ],
+            "nextButtonLocation": "belowStimulus",
+            "instructionLocation": "aboveStimulus"
+        },
+        "stackedBarChart": {
+            "meta": {
+                "difficulty": 5,
+                "chart": "stacked bar"
+            },
+            "description": "A chart with correct answer of 0.66",
+            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+            "type": "react-component",
+            "path": "demo-cleveland/assets/StackedBarChart.tsx",
+            "parameters": {
+                "data": [
+                    {
+                        "name": "A",
+                        "value": "30"
+                    },
+                    {
+                        "name": "B",
+                        "value": "40"
+                    },
+                    {
+                        "name": "C",
+                        "value": "50"
+                    },
+                    {
+                        "name": "D",
+                        "value": "40"
+                    },
+                    {
+                        "name": "E",
+                        "value": "60"
+                    }
+                ],
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            },
+            "response": [
+                {
+                    "id": "cm-response",
+                    "prompt": "Answer:",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "numerical",
+                    "placeholder": "0-100",
+                    "max": 100,
+                    "min": 0
+                }
+            ],
+            "nextButtonLocation": "belowStimulus",
+            "instructionLocation": "aboveStimulus"
+        },
+        "barChart": {
+            "meta": {
+                "difficulty": 5,
+                "chart": "Bar"
+            },
+            "description": "A chart with correct answer of 0.66",
+            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+            "type": "react-component",
+            "path": "demo-cleveland/assets/BarChart.tsx",
+            "parameters": {
+                "data": [
+                    {
+                        "name": "A",
+                        "value": "30"
+                    },
+                    {
+                        "name": "B",
+                        "value": "40"
+                    },
+                    {
+                        "name": "C",
+                        "value": "50"
+                    },
+                    {
+                        "name": "D",
+                        "value": "40"
+                    },
+                    {
+                        "name": "E",
+                        "value": "60"
+                    }
+                ],
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            },
+            "response": [
+                {
+                    "id": "cm-response",
+                    "prompt": "Answer:",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "numerical",
+                    "placeholder": "0-100",
+                    "max": 100,
+                    "min": 0
+                }
+            ],
+            "nextButtonLocation": "belowStimulus",
+            "instructionLocation": "aboveStimulus"
+        },
+        "pieChart": {
+            "meta": {
+                "difficulty": 5,
+                "chart": "pie"
+            },
+            "description": "Pie chart",
+            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+            "type": "react-component",
+            "path": "demo-cleveland/assets/PieChart.tsx",
+            "parameters": {
+                "data": [
+                    {
+                        "name": "A",
+                        "value": "30"
+                    },
+                    {
+                        "name": "B",
+                        "value": "40"
+                    },
+                    {
+                        "name": "C",
+                        "value": "50"
+                    },
+                    {
+                        "name": "D",
+                        "value": "40"
+                    },
+                    {
+                        "name": "E",
+                        "value": "60"
+                    }
+                ],
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            },
+            "response": [
+                {
+                    "id": "cm-response",
+                    "prompt": "Answer:",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "numerical",
+                    "placeholder": "0-100",
+                    "max": 100,
+                    "min": 0
+                }
+            ],
+            "nextButtonLocation": "belowStimulus",
+            "instructionLocation": "aboveStimulus"
+        }
+    },
+    "components": {
+        "introduction": {
+            "type": "markdown",
+            "path": "visualization-complexity/assets/introduction.md",
+            "response": []
+        },
+        "post-survey": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "q3-satisfaction",
+                    "prompt": "Rate your satisfaction with this survey from 1 (not enjoyable) to 5 (very enjoyable).",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Not Enjoyable",
+                    "rightLabel": "Very Enjoyable",
+                    "numItems": 5
+                }
+            ]
+        },
+        "barChart1": {
+            "baseComponent": "barChart",
+            "parameters": {
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            }
+        },
+        "pieChart1": {
+            "baseComponent": "pieChart",
+            "parameters": {
+                "selectedIndices": [
+                    1,
+                    4
+                ]
+            }
+        },
+        "bubbleChart2": {
+            "baseComponent": "bubbleChart",
+            "parameters": {
+                "selectedIndices": [
+                    0,
+                    3
+                ]
+            }
+        }
+    },
+    "sequence": {
+        "components": [
+            "introduction",
+            {
+                "components": [
+                    "barChart1",
+                    "pieChart1",
+                    "bubbleChart2"
+                ],
+                "order": "latinSquare"
+            },
+            "post-survey"
+        ],
+        "order": "fixed"
+    }
+}
