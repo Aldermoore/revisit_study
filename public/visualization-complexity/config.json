@@ -24,209 +24,34 @@
         "sidebar": false
     },
     "baseComponents": {
-        "bubbleChart": {
-            "description": "A bubble chart with correct answer of 0.66",
-            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
+        "tagPickerWithStimuli": {
+            "description": "A tag picker that allows for custom tags",
+            "instruction": "You have to select or create at least one tag in order to continue.",
             "type": "react-component",
-            "path": "demo-cleveland/assets/BubbleChart.tsx",
+            "path": "visualization-complexity/assets/TagPickerWithStimuli.tsx",
             "parameters": {
-                "data": [
-                    {
-                        "name": "A",
-                        "value": "30"
-                    },
-                    {
-                        "name": "B",
-                        "value": "40"
-                    },
-                    {
-                        "name": "C",
-                        "value": "50"
-                    },
-                    {
-                        "name": "D",
-                        "value": "40"
-                    },
-                    {
-                        "name": "E",
-                        "value": "60"
-                    }
-                ],
-                "selectedIndices": [
-                    1,
-                    4
-                ]
+                "stimulusNumber": 1
             },
             "response": [
                 {
-                    "id": "cm-response",
-                    "prompt": "Answer:",
+                    "id": "stimulus1-complexity",
+                    "prompt": "How complex does this data visualization seem to you?",
                     "required": true,
-                    "location": "belowStimulus",
-                    "type": "numerical",
-                    "placeholder": "0-100",
-                    "max": 100,
-                    "min": 0
-                }
-            ],
-            "nextButtonLocation": "belowStimulus",
-            "instructionLocation": "aboveStimulus"
-        },
-        "stackedBarChart": {
-            "meta": {
-                "difficulty": 5,
-                "chart": "stacked bar"
-            },
-            "description": "A chart with correct answer of 0.66",
-            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
-            "type": "react-component",
-            "path": "demo-cleveland/assets/StackedBarChart.tsx",
-            "parameters": {
-                "data": [
-                    {
-                        "name": "A",
-                        "value": "30"
-                    },
-                    {
-                        "name": "B",
-                        "value": "40"
-                    },
-                    {
-                        "name": "C",
-                        "value": "50"
-                    },
-                    {
-                        "name": "D",
-                        "value": "40"
-                    },
-                    {
-                        "name": "E",
-                        "value": "60"
-                    }
-                ],
-                "selectedIndices": [
-                    1,
-                    4
-                ]
-            },
-            "response": [
+                    "hidden": false,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Very simple",
+                    "rightLabel": "Very complex",
+                    "numItems": 9
+                },
                 {
-                    "id": "cm-response",
-                    "prompt": "Answer:",
+                    "id": "tags",
                     "required": true,
-                    "location": "belowStimulus",
-                    "type": "numerical",
-                    "placeholder": "0-100",
-                    "max": 100,
-                    "min": 0
+                    "hidden": true,
+                    "type": "iframe",
+                    "prompt": "Choose the tags that best fit your reason for the complexity rating"
                 }
-            ],
-            "nextButtonLocation": "belowStimulus",
-            "instructionLocation": "aboveStimulus"
-        },
-        "barChart": {
-            "meta": {
-                "difficulty": 5,
-                "chart": "Bar"
-            },
-            "description": "A chart with correct answer of 0.66",
-            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
-            "type": "react-component",
-            "path": "demo-cleveland/assets/BarChart.tsx",
-            "parameters": {
-                "data": [
-                    {
-                        "name": "A",
-                        "value": "30"
-                    },
-                    {
-                        "name": "B",
-                        "value": "40"
-                    },
-                    {
-                        "name": "C",
-                        "value": "50"
-                    },
-                    {
-                        "name": "D",
-                        "value": "40"
-                    },
-                    {
-                        "name": "E",
-                        "value": "60"
-                    }
-                ],
-                "selectedIndices": [
-                    1,
-                    4
-                ]
-            },
-            "response": [
-                {
-                    "id": "cm-response",
-                    "prompt": "Answer:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "numerical",
-                    "placeholder": "0-100",
-                    "max": 100,
-                    "min": 0
-                }
-            ],
-            "nextButtonLocation": "belowStimulus",
-            "instructionLocation": "aboveStimulus"
-        },
-        "pieChart": {
-            "meta": {
-                "difficulty": 5,
-                "chart": "pie"
-            },
-            "description": "Pie chart",
-            "instruction": "Two values are marked with dots. \n\nWhat percentage do you believe the smaller value represents relative to the larger value?",
-            "type": "react-component",
-            "path": "demo-cleveland/assets/PieChart.tsx",
-            "parameters": {
-                "data": [
-                    {
-                        "name": "A",
-                        "value": "30"
-                    },
-                    {
-                        "name": "B",
-                        "value": "40"
-                    },
-                    {
-                        "name": "C",
-                        "value": "50"
-                    },
-                    {
-                        "name": "D",
-                        "value": "40"
-                    },
-                    {
-                        "name": "E",
-                        "value": "60"
-                    }
-                ],
-                "selectedIndices": [
-                    1,
-                    4
-                ]
-            },
-            "response": [
-                {
-                    "id": "cm-response",
-                    "prompt": "Answer:",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "numerical",
-                    "placeholder": "0-100",
-                    "max": 100,
-                    "min": 0
-                }
-            ],
-            "nextButtonLocation": "belowStimulus",
-            "instructionLocation": "aboveStimulus"
+            ]
         }
     },
     "components": {
@@ -242,7 +67,7 @@
                     "id": "q3-satisfaction",
                     "prompt": "Rate your satisfaction with this survey from 1 (not enjoyable) to 5 (very enjoyable).",
                     "required": true,
-                    "location": "aboveStimulus",
+                    "location": "belowStimulus",
                     "type": "likert",
                     "leftLabel": "Not Enjoyable",
                     "rightLabel": "Very Enjoyable",
@@ -251,280 +76,12 @@
             ]
         },
         "stimulus1": {
-            "meta": {
+            "baseComponent": "tagPickerWithStimuli",
+            "description": "A cool tag picker",
+            "response": [],
+            "parameters":{
                 "stimulusNumber": 1
-            },
-            "description": "Stimulus 1",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus1.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
-        },
-        "stimulus2": {
-            "meta": {
-                "stimulusNumber": 2
-            },
-            "description": "Stimulus 2",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus2.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
-        }
-        "stimulus3": {
-            "meta": {
-                "stimulusNumber": 3
-            },
-            "description": "Stimulus 3",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus2.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
-        },
-        "stimulus4": {
-            "meta": {
-                "stimulusNumber": 4
-            },
-            "description": "Stimulus 4",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus2.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
-        },
-        "stimulus5": {
-            "meta": {
-                "stimulusNumber": 5
-            },
-            "description": "Stimulus 5",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus2.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
-        },
-        "stimulus6": {
-            "meta": {
-                "stimulusNumber": 6
-            },
-            "description": "Stimulus 6",
-            "instruction": "How complex does this data visualization seem to you?",
-            "type": "image",
-            "path": "visualization-complexity/assets/stimuli/stimulus2.jpg",
-            "style": {
-                "width": "800px"
-            },
-            "nextButtonLocation": "belowStimulus",
-            "response": [
-                {
-                    "id": "visualization-complexity/assets-response",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
-                    "id": "q7",
-                    "prompt": "What was the main reason for choosing this complexity rating?",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "checkbox",
-                    "options": [
-                        {
-                            "label": "Option 1",
-                            "value": "opt-1"
-                        },
-                        {
-                            "label": "Option 2",
-                            "value": "opt-2"
-                        },
-                        {
-                            "label": "Option 3",
-                            "value": "opt-3"
-                        }
-                    ]
-                }
-            ]
+            }
         }
     },
     "sequence": {
@@ -532,15 +89,9 @@
             "introduction",
             {
                 "components": [
-                    "stimulus1",
-                    "stimulus2",
-                    "stimulus3",
-                    "stimulus4",
-                    "stimulus5",
-                    "stimulus6"
+                    "stimulus1"
                 ],
-                "order": "latinSquare",
-                "numSamples": 2
+                "order": "random"
             },
             "post-survey"
         ],
