@@ -34,17 +34,6 @@
             },
             "response": [
                 {
-                    "id": "stimulus1-complexity",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "hidden": false,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                },
-                {
                     "id": "tags",
                     "required": true,
                     "hidden": true,
@@ -78,9 +67,41 @@
         "stimulus1": {
             "baseComponent": "tagPickerWithStimuli",
             "description": "A cool tag picker",
-            "response": [],
-            "parameters":{
+            "response": [
+                {
+                    "id": "stimulus1",
+                    "prompt": "How complex does this data visualization seem to you?",
+                    "required": true,
+                    "hidden": false,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Very simple",
+                    "rightLabel": "Very complex",
+                    "numItems": 9
+                }
+            ],
+            "parameters": {
                 "stimulusNumber": 1
+            }
+        },
+        "stimulus2": {
+            "baseComponent": "tagPickerWithStimuli",
+            "description": "A cool tag picker",
+            "response": [
+                {
+                    "id": "stimulus2",
+                    "prompt": "How complex does this data visualization seem to you?",
+                    "required": true,
+                    "hidden": false,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Very simple",
+                    "rightLabel": "Very complex",
+                    "numItems": 9
+                }
+            ],
+            "parameters": {
+                "stimulusNumber": 2
             }
         }
     },
@@ -89,7 +110,8 @@
             "introduction",
             {
                 "components": [
-                    "stimulus1"
+                    "stimulus1",
+                    "stimulus2"
                 ],
                 "order": "random"
             },
