@@ -2,7 +2,7 @@
 import { TagPicker } from 'rsuite';
 import 'rsuite/styles/index.less'; // or 'rsuite/dist/rsuite.min.css'
 
-const data = ['Eugenia', 'Bryan', 'Linda', 'Nancy', 'Lloyd', 'Alice', 'Julia', 'Albert'].map(
+const data = ['Big dataset', 'Many different shapes', 'Irregular shapes', 'Confusing layout', 'Confusing background', 'Multiple charts', 'Too small', 'Many colors', 'Poor contrast', '3D effect'].map(
   (item) => ({
     label: item,
     value: item,
@@ -23,13 +23,13 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
   imgPath = imgPath.concat('.jpg');
   return (
     <div className="tagPicker">
-      <img
+      {/* <img
         className="stimuli"
         style={{ maxWidth: '100%', width: 800 }}
         src={imgPath}
       />
       <br />
-      <br />
+      <br /> */}
       <p>What was the main reasons for choosing this complexity rating? Select the appropriate tags or create a new one.</p>
       <TagPicker
         creatable
@@ -78,6 +78,13 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
             });
           }
         }}
+      />
+      <br />
+      <br />
+      <img
+        className="stimuli"
+        style={{ maxWidth: '100%', width: 800 }}
+        src={imgPath}
       />
     </div>
   );

@@ -1,13 +1,13 @@
 {
     "$schema": "https://raw.githubusercontent.com/reVISit-studies/study/main/src/parser/StudyConfigSchema.json",
     "studyMetadata": {
-        "title": "Basic Randomization Study",
+        "title": "Visualization Complexity Study",
         "version": "pilot",
         "authors": [
             "CA3 @ Aarhus University"
         ],
         "date": "2024-07-25",
-        "description": "A simple questionnaire study",
+        "description": "A simple crowdsourcing study of the perceived complexity of data visualizations",
         "organizations": [
             "Aarhus University",
             "University of Utah",
@@ -34,6 +34,17 @@
             },
             "response": [
                 {
+                    "id": "stimulus-complexity-score",
+                    "prompt": "How complex does this data visualization seem to you?",
+                    "required": true,
+                    "hidden": false,
+                    "location": "aboveStimulus",
+                    "type": "likert",
+                    "leftLabel": "Very simple",
+                    "rightLabel": "Very complex",
+                    "numItems": 9
+                },
+                {
                     "id": "tags",
                     "required": true,
                     "hidden": true,
@@ -49,37 +60,24 @@
             "path": "visualization-complexity/assets/introduction.md",
             "response": []
         },
-        "post-survey": {
-            "type": "questionnaire",
-            "response": [
-                {
-                    "id": "q3-satisfaction",
-                    "prompt": "Rate your satisfaction with this survey from 1 (not enjoyable) to 5 (very enjoyable).",
-                    "required": true,
-                    "location": "belowStimulus",
-                    "type": "likert",
-                    "leftLabel": "Not Enjoyable",
-                    "rightLabel": "Very Enjoyable",
-                    "numItems": 5
-                }
-            ]
+        "consent": {
+            "type": "markdown",
+            "path": "visualization-complexity/assets/consent.md",
+            "response": []
+        },
+        "training1": {
+            "type": "markdown",
+            "path": "visualization-complexity/assets/training1.md",
+            "response": []
+        },
+        "training2": {
+            "type": "markdown",
+            "path": "visualization-complexity/assets/training2.md",
+            "response": []
         },
         "stimulus1": {
             "baseComponent": "tagPickerWithStimuli",
             "description": "A cool tag picker",
-            "response": [
-                {
-                    "id": "stimulus1",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "hidden": false,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                }
-            ],
             "parameters": {
                 "stimulusNumber": 1
             }
@@ -87,19 +85,6 @@
         "stimulus2": {
             "baseComponent": "tagPickerWithStimuli",
             "description": "A cool tag picker",
-            "response": [
-                {
-                    "id": "stimulus2",
-                    "prompt": "How complex does this data visualization seem to you?",
-                    "required": true,
-                    "hidden": false,
-                    "location": "aboveStimulus",
-                    "type": "likert",
-                    "leftLabel": "Very simple",
-                    "rightLabel": "Very complex",
-                    "numItems": 9
-                }
-            ],
             "parameters": {
                 "stimulusNumber": 2
             }
@@ -107,15 +92,18 @@
     },
     "sequence": {
         "components": [
+            "consent",
             "introduction",
+            "training1",
+            "training2",
             {
                 "components": [
                     "stimulus1",
                     "stimulus2"
                 ],
-                "order": "random"
-            },
-            "post-survey"
+                "numSamples": 1,
+                "order": "latinSquare"
+            }
         ],
         "order": "fixed"
     }
