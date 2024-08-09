@@ -14,22 +14,12 @@ let selectedTags: string[] = [];
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) {
   const stimuli = parameters.stimulusNumber;
-  // eslint-disable-next-line no-console
-  // console.log(parameters);
-  // eslint-disable-next-line no-console
-  // console.log(parameters.stimulusNumber);
-  let imgPath = '/src/public/visualization-complexity/assets/stimuli/stimulus';
+
+  let imgPath = '/visualization-complexity/assets/stimuli/stimulus';
   imgPath = imgPath.concat(stimuli);
   imgPath = imgPath.concat('.jpg');
   return (
     <div className="tagPicker">
-      {/* <img
-        className="stimuli"
-        style={{ maxWidth: '100%', width: 800 }}
-        src={imgPath}
-      />
-      <br />
-      <br /> */}
       <p>What was the main reasons for choosing this complexity rating? Select the appropriate tags or create a new one.</p>
       <TagPicker
         creatable
@@ -42,13 +32,6 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
           selectedTags = Array.of(value);
           // eslint-disable-next-line no-console
           console.log(selectedTags);
-          // setAnswer({
-          //   status: true,
-          //   provenanceGraph: undefined,
-          //   answers: {
-          //     tags: selectedTags,
-          //   },
-          // });
         }}
         onChange={(value, item) => {
           // eslint-disable-next-line no-console

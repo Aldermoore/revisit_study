@@ -122,7 +122,7 @@ export function StepRenderer() {
         aside={{ width: 360, breakpoint: 'xs', collapsed: { desktop: !asideOpen, mobile: !asideOpen } }}
       >
         <AppNavBar />
-        <AppAside />
+        {/* <AppAside /> */}
         <AppHeader studyNavigatorEnabled={studyNavigatorEnabled} dataCollectionEnabled={dataCollectionEnabled} />
         <HelpModal />
         <AlertModal />

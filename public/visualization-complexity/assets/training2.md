@@ -1,4 +1,4 @@
-# Complexity examples 
+# Complexity examples - *Please read this information carefully*
 
 Before we begin, please have a look at the following examples of simple, intermediate, and complex visualizations. 
 
@@ -28,3 +28,5 @@ The following visualization is **considered intermediately complex**, and should
 **Note:** Many aspects of a visualization can cause it to become more complex; Is the shapes irregular and confusing, are many colors used, is the structure of the visualization confusing, or is the background making it seem more complex? 
 
 Remember that different visualization types can be more complex than others. We are interested in how you perceive the complexity of the presented visualizations. 
+
+## Press 'Next' to begin the study

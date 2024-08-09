@@ -1,4 +1,4 @@
-# Welcome to our study on data visualization complexity
+# Participant instructions
 
 In this study you will be shown 50 different data visualizations, one at a time. For each data visualization you are to rate their perceived complexity, based on how difficult the visualization is to understand. You are not required to understand what the data visualization is showing. 
 

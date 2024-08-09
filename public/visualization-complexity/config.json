@@ -60,10 +60,248 @@
             "path": "visualization-complexity/assets/introduction.md",
             "response": []
         },
+        "taskSetup": {
+            "type": "markdown",
+            "path": "visualization-complexity/assets/taskSetup.md",
+            "response": []
+        },
         "consent": {
             "type": "markdown",
             "path": "visualization-complexity/assets/consent.md",
             "response": []
+        },
+        "demographics": {
+            "type": "questionnaire",
+            "response": [
+                {
+                    "id": "age",
+                    "prompt": "What is your age?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "numerical",
+                    "placeholder": "Please enter your age"
+                },
+                {
+                    "id": "gender",
+                    "prompt": "Which gender du you identify with?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please choose your gender",
+                    "options": [
+                        {
+                            "label": "Male",
+                            "value": "male"
+                        },
+                        {
+                            "label": "Female",
+                            "value": "female"
+                        },
+                        {
+                            "label": "Non-binary",
+                            "value": "nonbinary"
+                        }
+                    ]
+                },
+                {
+                    "id": "race",
+                    "prompt": "Which race or ethnicity do you identify with?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please select one",
+                    "options": [
+                        {
+                            "label": "African or Black",
+                            "value": "black"
+                        },
+                        {
+                            "label": "Asian",
+                            "value": "asian"
+                        },
+                        {
+                            "label": "Caucassian or White",
+                            "value": "white"
+                        },
+                        {
+                            "label": "Mixed",
+                            "value": "mixed"
+                        },
+                        {
+                            "label": "Other",
+                            "value": "other"
+                        }
+                    ]
+                },
+                {
+                    "id": "location",
+                    "prompt": "Which region do you reside in?",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please select the region that you are currently residing in",
+                    "options": [
+                        {
+                            "label": "Africa",
+                            "value": "africa"
+                        },
+                        {
+                            "label": "Asia",
+                            "value": "asia"
+                        },
+                        {
+                            "label": "Europe",
+                            "value": "europe"
+                        },
+                        {
+                            "label": "North America",
+                            "value": "northamerica"
+                        },
+                        {
+                            "label": "South America",
+                            "value": "southamerica"
+                        },
+                        {
+                            "label": "Australia",
+                            "value": "australia"
+                        },
+                        {
+                            "label": "Oceania / Pacific",
+                            "value": "oceania"
+                        }
+                    ]
+                },
+                {
+                    "id": "eduLevel",
+                    "prompt": "What is the highest degree or level of school you have completed? If currently enrolled, highest degree received!",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please select the highest degree you have completed",
+                    "options": [
+                        {
+                            "label": "No schooling completed",
+                            "value": "0"
+                        },
+                        {
+                            "label": "Nursery school to 8th grade (Less than high school)",
+                            "value": "1"
+                        },
+                        {
+                            "label": "Some high school, no diploma",
+                            "value": "2"
+                        },
+                        {
+                            "label": "High school graduate, diploma or the equivalent (for example: GED)",
+                            "value": "3"
+                        },
+                        {
+                            "label": "Some college/university credit, no degree",
+                            "value": "4"
+                        },
+                        {
+                            "label": "Trade/technical/vocational training",
+                            "value": "5"
+                        },
+                        {
+                            "label": "Associate degree",
+                            "value": "6"
+                        },
+                        {
+                            "label": "Bachelor’s degree",
+                            "value": "7"
+                        },
+                        {
+                            "label": "Master’s degree",
+                            "value": "8"
+                        },
+                        {
+                            "label": "Professional degree",
+                            "value": "9"
+                        },
+                        {
+                            "label": "Doctorate degree",
+                            "value": "10"
+                        }
+                    ]
+                }, 
+                {
+                    "id": "visxpprof",
+                    "prompt": "How often do you encouter data visualizations as part of your professional life (over the past six months)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please select the option that best fit you current professional life",
+                    "options": [
+                        {
+                            "label": "Never",
+                            "value": "0"
+                        },
+                        {
+                            "label": "A few time a year",
+                            "value": "1"
+                        },
+                        {
+                            "label": "A few times a month",
+                            "value": "2"
+                        },
+                        {
+                            "label": "A few times a week",
+                            "value": "3"
+                        },
+                        {
+                            "label": "Several times a week",
+                            "value": "4"
+                        },
+                        {
+                            "label": "Almost every day",
+                            "value": "5"
+                        },
+                        {
+                            "label": "Every day",
+                            "value": "6"
+                        }
+                    ]
+                },
+                {
+                    "id": "visxppers",
+                    "prompt": "How often do you encouter data visualizations as part of your personal life, fx. while reading the news (over the past six months)",
+                    "required": true,
+                    "location": "aboveStimulus",
+                    "type": "dropdown",
+                    "placeholder": "Please select the option that best fit you current personal life",
+                    "options": [
+                        {
+                            "label": "Never",
+                            "value": "0"
+                        },
+                        {
+                            "label": "A few time a year",
+                            "value": "1"
+                        },
+                        {
+                            "label": "A few times a month",
+                            "value": "2"
+                        },
+                        {
+                            "label": "A few times a week",
+                            "value": "3"
+                        },
+                        {
+                            "label": "Several times a week",
+                            "value": "4"
+                        },
+                        {
+                            "label": "Almost every day",
+                            "value": "5"
+                        },
+                        {
+                            "label": "Every day",
+                            "value": "6"
+                        }
+                    ]
+                }
+            ]
         },
         "training1": {
             "type": "markdown",
@@ -66228,9 +66466,11 @@
     },
     "sequence": {
         "components": [
-            "consent",
             "introduction",
+            "consent",
+            "demographics",
             "training1",
+            "taskSetup",
             "training2",
             {
                 "components": [
