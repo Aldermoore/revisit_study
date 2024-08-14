@@ -41,7 +41,7 @@ function isParticipantData(obj: unknown): obj is ParticipantData {
 export class FirebaseStorageEngine extends StorageEngine {
   private RECAPTCHAV3TOKEN = import.meta.env.VITE_RECAPTCHAV3TOKEN;
 
-  private firestore: Firestore;
+  public firestore: Firestore;
 
   private collectionPrefix = import.meta.env.DEV ? 'dev-' : 'prod-';
 
