@@ -141,15 +141,23 @@ async function getTagsData(database: Firestore) {
       }),
     );
   });
+  // eslint-disable-next-line no-use-before-define, no-console
+  console.log(oldTags.length);
 }
-
-// getTagsData(db);
-// eslint-disable-next-line vars-on-top
+let oldStimuli = '';
 let selectedTags: string[] = [];
+let oldTags: string[] = [];
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) {
   const stimuli = parameters.stimulusNumber;
+
+  if (stimuli !== oldStimuli) {
+    selectedTags = [];
+    // eslint-disable-next-line no-console
+    console.log('resetting selected tags');
+    oldStimuli = stimuli;
+  }
 
   const [items, setItems] = React.useState([]);
   const updateData = () => {
@@ -206,7 +214,9 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
         style={{ width: 300 }}
         menuStyle={{ width: 300 }}
         renderMenu={renderMenu}
-        onOpen={updateData}
+        onOpen={() => {
+          updateData();
+        }}
         onCreate={(value, item) => {
           // eslint-disable-next-line no-console
           console.log(value, item);
@@ -216,33 +226,26 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
           // addTag(db, value[value.length - 1]);
           addTag(db, String(item.value));
         }}
-        onSelect={(value, item) => { // onChange
+        onSelect={(value, item) => {
           // eslint-disable-next-line no-console
-          console.log('Previous tag list:', selectedTags.length, selectedTags);
-          // eslint-disable-next-line no-console
-          console.log('New tag list:', value.length, value, item);
+          console.log('selectedTags:', selectedTags.length, '\ncurrent value:', value.length, '\noldTags:', oldTags.length);
 
-          if (selectedTags.length === 0 || selectedTags.length < value.length) {
+          if (selectedTags.length > value.length) {
             // eslint-disable-next-line no-console
-            console.log('New tag added!:', item.value);
+            console.log('A tag needs to be removed:', item.value);
+            decrementTagCounter(db, String(item.value));
+          } else if (selectedTags.length < value.length) {
+            // eslint-disable-next-line no-console
+            console.log('A tag needs to be added:', item.value);
             incrementTagCounter(db, String(item.value));
-            // if (selectedTags.length === 0) { selectedTags = []; }
-            selectedTags = (value);
           } else {
             // eslint-disable-next-line no-console
-            console.log('Tag removed!:', item.value);
-            decrementTagCounter(db, String(item.value));
-            const newTags = selectedTags.filter((e) => e !== item.value);
-            selectedTags = newTags;
-            // const position = selectedTags.indexOf(String(item.value));
-            // // eslint-disable-next-line no-bitwise
-            // if (~position) selectedTags.splice(position, 1);
+            console.log('selectedTags and the current value are equal. This should NOT happen!!', item.value);
           }
-          // eslint-disable-next-line no-console
-          console.log(selectedTags);
-          // if (value.length > 0) {
-          //   incrementTagCounter(db, value[value.length - 1]);
-          // }
+
+          oldTags = value;
+          selectedTags = value;
+
           if (selectedTags.length > 0) {
             // eslint-disable-next-line no-console
             console.log('Setting the answer to true');
@@ -264,6 +267,44 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
               },
             });
           }
+
+          /*
+          if (selectedTags.length === 0 || selectedTags.length < value.length) {
+            // eslint-disable-next-line no-console
+            console.log('New tag added!:', item.value);
+            incrementTagCounter(db, String(item.value));
+            selectedTags = (value);
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('Tag removed!:', item.value);
+            decrementTagCounter(db, String(item.value));
+            const newTags = selectedTags.filter((e) => e !== item.value);
+            selectedTags = newTags;
+          }
+          // eslint-disable-next-line no-console
+          console.log(selectedTags);
+          if (selectedTags.length > 0) {
+            // eslint-disable-next-line no-console
+            console.log('Setting the answer to true');
+            setAnswer({
+              status: true,
+              provenanceGraph: undefined,
+              answers: {
+                tags: selectedTags,
+              },
+            });
+          } else {
+            // eslint-disable-next-line no-console
+            console.log('No answer given, e.g. they have removed all selections');
+            setAnswer({
+              status: false,
+              provenanceGraph: undefined,
+              answers: {
+                tags: selectedTags,
+              },
+            });
+          }
+          */
         }}
         onTagRemove={(value, item) => { // onChange
           // eslint-disable-next-line no-console

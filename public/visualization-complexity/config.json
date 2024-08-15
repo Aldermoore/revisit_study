@@ -21,7 +21,9 @@
         "logoPath": "revisitAssets/revisitLogoSquare.svg",
         "withProgressBar": true,
         "autoDownloadStudy": false,
-        "sidebar": false
+        "sidebar": false,
+        "urlParticipantIdParam": "PROLIFIC_PID",
+        "studyEndMsg": "**Thank you for completing the study. You may click this link and return to Prolific**: [https://app.prolific.com/submissions/complete?cc=C10I5YOL](https://app.prolific.com/submissions/complete?cc=C10I5YOL)"
     },
     "baseComponents": {
         "tagPickerWithStimuli": {
@@ -58,7 +60,17 @@
         "introduction": {
             "type": "markdown",
             "path": "visualization-complexity/assets/introduction.md",
-            "response": []
+            "response": [
+                {
+                    "id": "prolificId",
+                    "prompt": "Please enter your Prolific ID",
+                    "required": true,
+                    "location": "belowStimulus",
+                    "type": "shortText",
+                    "placeholder": "Prolific ID",
+                    "paramCapture": "PROLIFIC_PID"
+                }
+            ]
         },
         "taskSetup": {
             "type": "markdown",
