@@ -3,9 +3,8 @@ import { TagPicker } from 'rsuite';
 import 'rsuite/styles/index.less'; // or 'rsuite/dist/rsuite.min.css'
 import SpinnerIcon from '@rsuite/icons/legacy/Spinner';
 
-import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, collection, getDocs, addDoc, updateDoc,
+  collection, getDocs, addDoc, updateDoc,
   Firestore, query, where, doc,
   limit,
   getDoc,
@@ -55,7 +54,7 @@ async function incrementTagCounter(database: Firestore, tagName: string) {
       try {
         const docSnap = await getDoc(tagToIncrement);
         // eslint-disable-next-line no-console
-        const oldCount: number = docSnap.data().count;
+        const oldCount: number = docSnap?.data()?.count;
         const newCount: number = oldCount + 1;
         await updateDoc(tagToIncrement, {
           count: newCount,
@@ -84,8 +83,8 @@ async function decrementTagCounter(database: Firestore, tagName: string) {
       try {
         const docSnap = await getDoc(tagToIncrement);
         // eslint-disable-next-line no-console
-        console.log(docSnap.data().count, docSnap.id);
-        const oldCount: number = docSnap.data().count;
+        console.log(docSnap?.data()?.count, docSnap.id);
+        const oldCount: number = docSnap?.data()?.count;
         let newCount: number = oldCount - 1;
         if (newCount < 0) {
           newCount = 0;
@@ -104,7 +103,7 @@ async function decrementTagCounter(database: Firestore, tagName: string) {
   }
 }
 
-let data = ['HEEEEEEEEELLLLLLLOOOOOO', 'Big dataset', 'Many different shapes', 'Irregular shapes', 'Confusing layout', 'Confusing background', 'Multiple charts', 'Too small', 'Many colors', 'Poor contrast', '3D effect', 'Not complex']
+let data = ['Big dataset', 'Many different shapes', 'Irregular shapes', 'Confusing layout', 'Confusing background', 'Multiple charts', 'Too small', 'Many colors', 'Poor contrast', '3D effect', 'Not complex']
   .map(
     (item) => ({
       label: item,
@@ -141,8 +140,6 @@ async function getTagsData(database: Firestore) {
       }),
     );
   });
-  // eslint-disable-next-line no-use-before-define, no-console
-  console.log(oldTags.length);
 }
 let oldStimuli = '';
 let selectedTags: string[] = [];
