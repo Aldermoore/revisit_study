@@ -10,7 +10,7 @@ import {
   limit,
   getDoc,
 } from 'firebase/firestore';
-import React from 'react';
+import React, { ReactNode } from 'react';
 import { FirebaseStorageEngine } from '../../../storage/engines/FirebaseStorageEngine';
 
 const app = new FirebaseStorageEngine();
@@ -179,7 +179,7 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
     });
   };
 
-  const renderMenu = (menu: string) => {
+  const renderMenu = (menu: ReactNode) => {
     if (items.length === 0) {
       return (
         <p style={{ padding: 4, color: '#999', textAlign: 'center' }}>
