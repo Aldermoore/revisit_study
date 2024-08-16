@@ -103,6 +103,8 @@ async function decrementTagCounter(database: Firestore, tagName: string) {
   }
 }
 
+type tagType = { label: string; value: string; };
+
 let data = ['Big dataset', 'Many different shapes', 'Irregular shapes', 'Confusing layout', 'Confusing background', 'Multiple charts', 'Too small', 'Many colors', 'Poor contrast', '3D effect', 'Not complex']
   .map(
     (item) => ({
@@ -156,7 +158,7 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
     oldStimuli = stimuli;
   }
 
-  const [items, setItems] = React.useState([]);
+  const [items, setItems] = React.useState<tagType[]>([]);
   const updateData = () => {
     const tagnames: string[] = [];
     const taglist: { tagName: string; count: number; }[] = [];
@@ -220,7 +222,6 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
           selectedTags = (value);
           // eslint-disable-next-line no-console
           console.log(selectedTags);
-          // addTag(db, value[value.length - 1]);
           addTag(db, String(item.value));
         }}
         onSelect={(value, item) => {
@@ -264,44 +265,6 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
               },
             });
           }
-
-          /*
-          if (selectedTags.length === 0 || selectedTags.length < value.length) {
-            // eslint-disable-next-line no-console
-            console.log('New tag added!:', item.value);
-            incrementTagCounter(db, String(item.value));
-            selectedTags = (value);
-          } else {
-            // eslint-disable-next-line no-console
-            console.log('Tag removed!:', item.value);
-            decrementTagCounter(db, String(item.value));
-            const newTags = selectedTags.filter((e) => e !== item.value);
-            selectedTags = newTags;
-          }
-          // eslint-disable-next-line no-console
-          console.log(selectedTags);
-          if (selectedTags.length > 0) {
-            // eslint-disable-next-line no-console
-            console.log('Setting the answer to true');
-            setAnswer({
-              status: true,
-              provenanceGraph: undefined,
-              answers: {
-                tags: selectedTags,
-              },
-            });
-          } else {
-            // eslint-disable-next-line no-console
-            console.log('No answer given, e.g. they have removed all selections');
-            setAnswer({
-              status: false,
-              provenanceGraph: undefined,
-              answers: {
-                tags: selectedTags,
-              },
-            });
-          }
-          */
         }}
         onTagRemove={(value, item) => { // onChange
           // eslint-disable-next-line no-console
@@ -309,9 +272,6 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
           decrementTagCounter(db, value);
           const newTags = selectedTags.filter((e) => e !== value);
           selectedTags = newTags;
-          // const position = selectedTags.indexOf(String(value));
-          // // eslint-disable-next-line no-bitwise
-          // if (~position) selectedTags.splice(position, 1);
         }}
         onEnter={() => {
           getTagsData(db);
