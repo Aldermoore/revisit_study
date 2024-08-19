@@ -210,8 +210,8 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
         cleanable={false}
         data={items}
         cacheData={defaultTagsData}
-        style={{ width: 300 }}
-        menuStyle={{ width: 300 }}
+        style={{ maxWidth: '100%', width: 800 }}
+        // block
         renderMenu={renderMenu}
         onOpen={() => {
           updateData();
