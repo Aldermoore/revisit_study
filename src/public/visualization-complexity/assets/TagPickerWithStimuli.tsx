@@ -11,6 +11,7 @@ import {
 } from 'firebase/firestore';
 import React, { ReactNode } from 'react';
 import { FirebaseStorageEngine } from '../../../storage/engines/FirebaseStorageEngine';
+import { PREFIX } from '../../../utils/Prefix';
 
 const app = new FirebaseStorageEngine();
 // eslint-disable-next-line no-console
@@ -199,7 +200,7 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
     return menu;
   };
 
-  let imgPath = '/visualization-complexity/assets/stimuli/stimulus';
+  let imgPath = `${PREFIX}visualization-complexity/assets/stimuli/stimulus`;
   imgPath = imgPath.concat(stimuli);
   imgPath = imgPath.concat('.jpg');
   return (
@@ -210,7 +211,7 @@ function Picker({ parameters, setAnswer }: { parameters: any, setAnswer: any }) 
         cleanable={false}
         data={items}
         cacheData={defaultTagsData}
-        style={{ maxWidth: '100%', width: 800 }}
+        style={{ maxWidth: 800, width: '100%', maxHeight: 600 }}
         // block
         renderMenu={renderMenu}
         onOpen={() => {

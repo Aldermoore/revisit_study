@@ -44,7 +44,7 @@
                     "type": "likert",
                     "leftLabel": "Very simple",
                     "rightLabel": "Very complex",
-                    "numItems": 9
+                    "numItems": 10
                 },
                 {
                     "id": "tags",
@@ -112,6 +112,10 @@
                         {
                             "label": "Non-binary",
                             "value": "nonbinary"
+                        },
+                        {
+                            "label": "I prefer not to answer",
+                            "value": "optout"
                         }
                     ]
                 },
